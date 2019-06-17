@@ -1,0 +1,76 @@
+<mat-toolbar color="primary">
+  <span style="font-family: 'Playball', cursive;font-size: 28px">Wheels4Meals</span>
+    <span class="example-fill-remaining-space"></span>
+    <span>Logout</span>
+</mat-toolbar>
+<br>
+<div fxLayout="row"
+  class="container"
+fxLayout
+fxLayout.xs="column"
+fxLayoutGap="20px"
+fxLayoutGap.xs="0">
+
+<h1>Restaurants</h1>
+<span fxFlex></span>
+  <button mat-raised-button color="primary" style="height: 40px">My Orders</button>
+  <!-- <span>Restaurants Name</span> -->
+</div>
+<div fxLayout="row"
+  class="container"
+fxLayout
+fxLayout.xs="column"
+fxLayoutGap="20px"
+fxLayoutGap.xs="0">
+
+<p class="mat-form-field--inline">
+  <mat-form-field appearance="standard">
+      <mat-label>Restaurant Name</mat-label>
+      <input matInput #query
+      (keyup)="filter(query.value)"/>
+  </mat-form-field>
+
+</p>
+<span fxFlex></span>
+    <span (click)="sortList('name')" class="by-name"><mat-icon>swap_vert</mat-icon></span>
+    <!-- <span *ngIf="key === 'name'">
+      <span *ngIf="reverse">
+          <mat-icon aria-hidden="true">swap_vert</mat-icon>
+      </span>
+      <span *ngIf="!reverse">
+        <mat-icon aria-hidden="true">swap_vert</mat-icon>
+      </span>
+    </span> -->
+    <!-- <mat-form-field  style="margin-top: 40px">
+    <mat-label>Sort</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let sort of sortList">
+        {{sort}}
+      </mat-option>
+    </mat-select>
+    </mat-form-field> -->
+</div>
+
+<!-- ***************Card Layout************ -->
+<div fxLayout="row wrap"
+class="container"
+fxLayoutGap="20px"
+fxLayoutGap.xs="0">
+<div *ngFor="let restaurant of filteredRestaurants | orderBy: key : reverse" style="width:23.5%" margin-height="10px">
+  <mat-card class="example-card">
+    <img mat-card-image src="{{restaurant.imageUrl}}">
+    <mat-card-content>
+      <h2>{{restaurant.name}}</h2>
+      <p>{{restaurant.address.street}},{{restaurant.address.city}}</p>
+      <span fxLayoutGap="10px">
+        <button mat-raised-button>South Indian</button>
+        <button mat-raised-button>North Indian</button>
+      </span>
+      <span fxLayout="row" fxLayoutGap="50px">
+        <button mat-button><mat-icon>star</mat-icon>4.5</button>
+        <p>Rs.300 FOR 2</p>
+      </span>
+    </mat-card-content>
+  </mat-card>
+  </div>
+  
