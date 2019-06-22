@@ -1,4 +1,4 @@
-import { Food } from './food';
+import { Food } from '../food/food';
 import { Review } from './review';
 
 

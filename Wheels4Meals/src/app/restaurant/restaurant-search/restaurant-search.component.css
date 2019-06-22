@@ -1,0 +1,36 @@
+.example-fill-remaining-space{
+    flex: 1 1 auto;
+}
+.text-logout{
+    font-size:15px;
+}
+.mat-form-field--inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mat-form-field--inline .mat-form-field {
+    display: inline-block;
+    /* width: 100%; */
+    vertical-align: middle;
+}
+.mat-form-field--inline .mat-form-field:nth-child(1) {
+    margin-right: 20px;
+}
+.rating{
+    color:white;
+    background-color: green;
+    min-width:62px;
+
+}
+.category-btn{
+    background-color: rgb(212, 222, 247);
+
+    }
+    .card-title{
+        font-weight: bold;
+    }
+    mat-card{
+        margin-bottom: 30px;
+    }

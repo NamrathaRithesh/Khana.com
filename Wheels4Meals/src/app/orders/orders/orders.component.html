@@ -1,0 +1,76 @@
+<mat-tab-group dynamicHeight>
+  <mat-tab label="Past Orders" >
+    <mat-card>
+    <div class="example-large-box mat-elevation-z4" *ngFor="let order of pastOrderList"  
+    fxLayout="column"
+    fxLayoutGap="10px">
+    
+      <div class="container"
+      fxLayout="row"
+      fxLayoutGap="10px">
+        <span class="order-text">Order #{{order.id}}</span>
+        <span fxFlex></span>
+        <span class="order-text-small">Delivered on {{order.date}}</span>
+      </div>
+     <div
+     fxLayout="column"
+     fxLayoutGap="10px">
+       <span class="order-text-small">Restaurant Name</span>
+       <span class="order-text-small">Delivered By Delivery Agent 1</span>
+       <span class="order-text-small" *ngFor="let foodQuantity of order.cart.foodQuantityList">{{foodQuantity.food.name}}*{{foodQuantity.food.quantity}}</span>
+     </div>
+     <div 
+     fxLayout="row"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px">
+     <div>
+      <div class="item item-2 item-order" fxFlex fxFlexOrder="1"><button mat-raised-button (click)="openDialog()" color="primary" style="height: 40px">Reorders</button></div>
+      <div class="item item-2 item-order" fxFlex fxFlexOrder="2"><button mat-raised-button (click)="openviewDialog()" color="primary" style="height: 40px">View Details</button></div>
+     </div>
+     
+      <span fxFlex></span>
+      <span class="order-text-small">PNR:{{order.cart.grandTotal}}</span>
+     </div>
+      
+    </div>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Live Order">
+      <mat-card>
+        <div class="example-large-box mat-elevation-z4" *ngFor="let order of liveOrderList"  
+        fxLayout="column"
+        fxLayoutGap="10px">
+        
+          <div class="container"
+          fxLayout="row"
+          fxLayoutGap="10px">
+            <span class="order-text">Order #{{order.id}}</span>
+            <span fxFlex></span>
+            <span class="order-text-small">Delivered on {{order.date}}</span>
+          </div>
+         <div
+         fxLayout="column"
+         fxLayoutGap="10px">
+           <span class="order-text-small">Restaurant Name</span>
+           <span class="order-text-small">Delivered By Delivery Agent 1</span>
+           <span class="order-text-small" *ngFor="let foodQuantity of order.cart.foodQuantityList">{{foodQuantity.food.name}}*{{foodQuantity.food.quantity}}</span>
+         </div>
+         <div 
+         fxLayout="row"
+         fxLayoutAlign="center"
+         fxLayoutGap="10px">
+         <!-- <div>
+          <div class="item item-2 item-order" fxFlex fxFlexOrder="1"><button mat-raised-button (click)="openDialog()" color="primary" style="height: 40px">Reorders</button></div>
+          <div class="item item-2 item-order" fxFlex fxFlexOrder="2"><button mat-raised-button (click)="openviewDialog()" color="primary" style="height: 40px">View Details</button></div>
+         </div> -->
+         
+          <span fxFlex></span>
+          <span class="order-text-small">PNR:{{order.cart.grandTotal}}</span>
+         </div>
+          
+        </div>
+        </mat-card>
+  </mat-tab>
+</mat-tab-group>
+
+

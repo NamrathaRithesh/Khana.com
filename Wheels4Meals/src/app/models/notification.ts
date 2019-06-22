@@ -1,4 +1,4 @@
-import { Order } from './order';
+import { Order } from '../orders/order';
 
 
 export class Notification{

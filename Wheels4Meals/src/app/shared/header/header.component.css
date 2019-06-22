@@ -1,0 +1,13 @@
+.header{
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2);
+    
+}
+
+.logo{
+    font-family: 'Playball' cursive;
+    font-size: 28px;
+}
+
+.example-fill-remaining-space{
+    flex: 1 1 auto;
+}

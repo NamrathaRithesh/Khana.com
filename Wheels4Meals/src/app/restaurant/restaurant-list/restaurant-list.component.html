@@ -1,74 +1,38 @@
-<mat-toolbar color="primary">
-    <span style="font-family: 'Playball', cursive;font-size: 28px">Wheels4Meals</span>
-      <span class="example-fill-remaining-space"></span>
-      <span>Logout</span>
-</mat-toolbar>
+<!-- <app-header></app-header> -->
+<div fxLayout="row"
+  class="container"
+fxLayout
+fxLayout.xs="column"
+fxLayoutGap="20px"
+fxLayoutGap.xs="0">
 
-<mat-toolbar class="toolbar">
-  <span>Restaurants / Denmark Restaurant</span>
-</mat-toolbar>
-
-<div class="container"
-    fxLayout
-    fxLayout.xs="column"
-    fxLayoutAlign="center"
-    fxLayoutGap="10px"
-    fxLayoutGap.xs="0">
-  <div class="item item-1" fxFlex="20%"><img src="assets/pizza.jpg" height="200px" weight="200px" style="overflow: hidden"></div>
-  <div class="item item-2" fxFlex fxFlexOrder="1"><button mat-raised-button color="primary" style="margin-right: 20px">Edit Details</button></div>
-  <div class="item item-3" fxFlex="70%">
-    <h3>Restaurants</h3>
-    <span>Electronics City, Bangalore</span>
-    <div style="margin-top:20px">
-      <button mat-button class="category-btn" style="margin-right: 20px">South Indian</button>
-      <button mat-button class="category-btn">North Indian</button>
-    </div>
-    <button mat-raised-button class="rating"><mat-icon>star</mat-icon>4</button>
-    <span style="margin-top:15px;margin-left:20px">Rs 300 for 2</span>
-  </div>
+<p class="mat-form-field--inline">
+  <!-- <app-restaurant-search></app-restaurant-search> -->
+</p>
 </div>
-<mat-tab-group>
-  <mat-tab label="Food">
-    <div class="container"
-    fxLayout="row"
-        fxLayout
-        fxLayout.xs="column"
-        fxLayoutAlign="center"
-        fxLayoutGap="10px"
-        fxLayoutGap.xs="0">
-        <div class="item item-1" fxFlex="20%">
-          <ul>
-            <li>South Indian</li>
-            <li>North Indian</li>
-            <li>Desserts</li>
-            <li>Biryani </li>
-            <li>Starters</li>
-          </ul>
-          </div>
-      </div>
-      <div fxFlex fxFlexOrder="1" fxFlex="40%">
-        <h3>South Indian</h3>
-        <br>
-        <mat-card class="example-card">
-          <mat-card-content>
-            <h4>
-              Plain Dosa
-            </h4>
-            <span>South Indian</span>
-          </mat-card-content>
-          <mat-card-actions>
-            <span>INR 30.00</span>
-            <button mat-button>SHARE</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
-  </mat-tab>
-  <mat-tab label="Reviews">
-    <h1>Some more tab content</h1>
-    <p>...</p>
-  </mat-tab>
-  <mat-tab label="Orders">
-    <h1>Some more tab content</h1>
-    <p>...</p>
-  </mat-tab>
-</mat-tab-group>
+<div fxLayout="row wrap"
+class="container"
+fxLayoutGap="20px"
+fxLayoutGap.xs="0">
+<!-- <div *ngFor="let restaurant of filteredRestaurants | orderBy: key : reverse" style="width:23.5%" margin-height="10px"> -->
+  <div *ngFor="let restaurant of restaurantlist" 
+  [class.selected]="restaurant.id === selectedId" style="width:23.5%" margin-height="10px">
+  <a [routerLink]="['/foodList', restaurant.id]">
+  <mat-card class="example-card">
+    <img mat-card-image src="{{restaurant.imageUrl}}">
+    <mat-card-content>
+      <h2>{{restaurant.name}}</h2>
+      <p>{{restaurant.address.street}},{{restaurant.address.city}}</p>
+      <span fxLayoutGap="10px">
+        <button mat-raised-button>South Indian</button>
+        <button mat-raised-button>North Indian</button>
+      </span>
+      <span fxLayout="row" fxLayoutGap="50px">
+        <button mat-button><mat-icon>star</mat-icon>4.5</button>
+        <p>Rs.300 FOR 2</p>
+      </span>
+    </mat-card-content>
+  </mat-card>
+  </a>
+  </div> 
+

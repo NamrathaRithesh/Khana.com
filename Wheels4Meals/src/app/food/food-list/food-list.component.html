@@ -1,0 +1,44 @@
+<app-header></app-header>
+<app-restaurant-detail></app-restaurant-detail>
+<mat-tab-group >
+    <mat-tab label="Food"> 
+        <div class="container"
+        fxLayout="row"
+        fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="10px"
+        fxLayoutGap.xs="0">
+     <div class="item item-1" fxFlex >
+    <ul style="width: 300px;">
+      <li (click)="searchCategory('southindian')"><a>South Indian</a></li>
+      <li (click)="searchCategory('northindian')"><a>North Indian</a></li>
+      <li (click)="searchCategory('desserts')"><a>Desserts</a></li>
+      <li (click)="searchCategory('biryani')"><a>Biryani</a></li>
+      <li (click)="searchCategory('starters')"><a>Starters</a></li>
+    </ul>        
+            <div fxFlex fxFlexOrder="1"  flex-wrap="wrap" fxFlex="40%">
+              <h3>South Indian</h3>
+              <br>
+                <div *ngFor="let food of foods$|async">
+            <mat-card class="example-card">
+                <mat-card-content>
+                  <h4>
+                   {{food.name}}
+                  </h4>
+                  <span>{{food.cuisine}}</span>
+                </mat-card-content>
+                <mat-card-actions>
+                  <span>INR {{food.price}}</span>
+                  <button mat-button>SHARE</button>
+                  <button mat-raised-button color="primary"(click)="addToCart(food)">ADD TO CART</button>
+                </mat-card-actions>
+              </mat-card>
+              </div>
+            </div>     
+      </div>
+  </div>
+    </mat-tab>
+    <mat-tab label="Reviews">Reviews</mat-tab>
+    <mat-tab label="Orders"> Orders <app-orders></app-orders> </mat-tab>
+  </mat-tab-group>

@@ -84,7 +84,7 @@
       </div>
     </div>
       <button mat-button type="submit" class="mat-raised-button mat-primary"
-      [disabled]="!registerForm.valid">Register</button>
+      [disabled]="!registerForm.valid" (click)="submit()">Register</button>
 
     </form>
   </div>

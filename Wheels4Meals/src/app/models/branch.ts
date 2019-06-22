@@ -1,7 +1,7 @@
 import { User } from './user';
 import { Address } from './address';
 import { Review } from './review';
-import { Order } from './order';
+import { Order } from '../orders/order';
 
 
 export class Branch{

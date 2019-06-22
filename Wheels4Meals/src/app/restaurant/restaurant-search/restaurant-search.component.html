@@ -1,0 +1,12 @@
+<!-- <mat-form-field appearance="standard">
+  <mat-label>Restaurant Name</mat-label>
+  <input matInput #query
+  (keyup)="filter(query.value)"/>
+</mat-form-field> -->
+<div>
+  <mat-form-field appearance="outline">
+    <mat-label>Restaurant Name</mat-label>
+    <input matInput type="text" [formControl]="restaurantName">
+  </mat-form-field>
+  <button (click)="search()" mat-raised-button color="primary">Search</button>
+</div>

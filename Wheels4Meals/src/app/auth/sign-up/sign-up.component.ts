@@ -4,6 +4,7 @@ import { FormsModule, Validators, FormGroup, FormBuilder, FormControl } from '@a
 import { ContactDetail } from 'src/app/models/contactDetail';
 import { Address } from 'src/app/models/address';
 import { AddressBook } from 'src/app/models/addressBook';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,19 +13,19 @@ import { AddressBook } from 'src/app/models/addressBook';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-
+  submitted=false;
   user: User = new User();
   
   registerForm: FormGroup;
   
   hide=true;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private router:Router) { }
 
   
-  onSubmit(){
-    alert("Submitted successfully");
-  }
+  // onSubmit(){
+  //   alert("Submitted successfully");
+  // }
 
   ngOnInit() {
 
@@ -105,6 +106,25 @@ getStateErrorMessage(){
 }
 getStreetErrorMessage(){
   return this.registerForm.get('contactDetails').get('addressBook').get('street') ? 'You must enter street': '';
+}
+
+onSubmit() {
+  this.submitted = true;
+
+  // stop here if form is invalid
+  if (this.registerForm.invalid) {
+      return;
+  }
+let email=this.registerForm.get('contactDetails').get('emailId').value;
+let password=this.registerForm.get('password').value;
+localStorage.setItem('email',email);
+localStorage.setItem('password',password);
+  alert('SUCCESS!)');
+  this.router.navigate(['/login']);
+  // console.log( this.f.name.value);
+  // console.log( this.f.userName.value);
+  // console.log( this.f.contact.value);
+  // console.log( this.f.address.value);
 }
 }
 

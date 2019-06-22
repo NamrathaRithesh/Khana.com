@@ -1,6 +1,6 @@
 import { User } from './user';
 import { Notification } from './notification';
-import { Order } from './order';
+import { Order } from '../orders/order';
 
 export class DeliveryPartner{
     partner:User;

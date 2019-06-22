@@ -1,3 +1,9 @@
+<mat-toolbar class="header" color="primary">
+  <span class="logo">Wheels4Meals</span>
+    <span class="example-fill-remaining-space"></span>
+    <span><a routerLink="/register">Register</a></span>
+</mat-toolbar>
+
 <form class="example-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div formGroupName="contactDetails">
         <p>    
@@ -18,4 +24,5 @@
         <!-- <mat-error *ngIf="registerForm.get('password').invalid">{{getPasswordErrorMessage()}}</mat-error> -->
       </mat-form-field>
     </p>
+    <button (click)="onLogInSubmit()">LogIn</button>
     

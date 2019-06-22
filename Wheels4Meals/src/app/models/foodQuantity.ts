@@ -1,4 +1,4 @@
-import { Food } from './food';
+import { Food } from '../food/food';
 
 export class FoodQuantity{
     food:Food;

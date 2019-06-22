@@ -1,0 +1,35 @@
+<div fxLayout="row"fxLayoutGap="10px">
+  <div fxFlex="80%">
+<ul class="breadcrumb" >
+    <li><a routerLink="/restaurant">Restaurants</a></li>
+    <li><a routerLink="" *ngIf="restaurant$ | async as restaurant">{{restaurant.name}}</a></li>
+  </ul>
+  {{restaurant$ | async }}
+
+  <div class="container"
+      fxLayout
+      fxLayout.xs="column"
+      fxLayoutAlign="center"
+      fxLayoutGap="10px"
+      fxLayoutGap.xs="0">
+    <div class="item item-1" fxFlex="23%" *ngIf="restaurant$ | async as restaurant">
+      <img src="{{restaurant.imageUrl}}" height="200px" width="300px" style="overflow: hidden">
+    </div>
+    <div class="item item-2" fxFlex fxFlexOrder="1"><button mat-raised-button color="primary" style="margin-right: 20px">Edit Details</button></div>
+    <div class="item item-3" fxFlex="70%" *ngIf="restaurant$ | async as restaurant">
+      <h3>Restaurants</h3>
+      <span>{{restaurant.address.street}},{{restaurant.address.city}}</span>
+      <div style="margin-top:20px">
+        <button mat-button class="category-btn" style="margin-right: 20px">South Indian</button>
+        <button mat-button class="category-btn">North Indian</button>
+      </div>
+      <button mat-raised-button class="rating"><mat-icon>star</mat-icon>4</button>
+      <span style="margin-top:15px;margin-left:20px">Rs 300 for 2</span>
+    </div>
+  </div>
+  <div fxFlex="20%">
+    <app-cart></app-cart>
+</div>
+</div>   
+
+
